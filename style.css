@@ -58,9 +58,47 @@ body {
 /* --- Core Request: 600px Fixed Width Container --- */
 .contents {
   width: 600px;
-  margin: 40px auto;
+  margin: 24px auto;
   position: relative;
   z-index: 10;
+}
+
+/* Make headers and sections inside .contents look like premium cards */
+header .contents,
+section .contents {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+}
+
+header .contents:hover,
+section .contents:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Headings and text inside the containers */
+.contents h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #ffffff, #e5e7eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contents p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 /* Header Styles */
