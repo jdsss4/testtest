@@ -1,0 +1,278 @@
+/* Global Variables & Theme */
+:root {
+  --bg-color: #0b0f19;
+  --card-bg: rgba(17, 24, 39, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --primary-glow: rgba(99, 102, 241, 0.15);
+  --secondary-glow: rgba(6, 182, 212, 0.15);
+  --accent-color: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+/* Background Glow Effects */
+.bg-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.bg-glow-1 {
+  top: 10%;
+  left: 20%;
+  background: var(--primary-glow);
+}
+
+.bg-glow-2 {
+  bottom: 20%;
+  right: 20%;
+  background: var(--secondary-glow);
+}
+
+/* --- Core Request: 600px Fixed Width Container --- */
+.contents {
+  width: 600px;
+  margin: 40px auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Main Card Glassmorphism */
+.main-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.main-card:hover {
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.1);
+}
+
+/* Hero Section */
+.card-hero {
+  margin-bottom: 32px;
+}
+
+.card-hero h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #ffffff, #d1d5db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+/* Stats Layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Details Section & Code Preview */
+.details-section {
+  margin-bottom: 32px;
+}
+
+.details-section h2, 
+.interactive-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.details-section p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.code-preview {
+  background: #070a13;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+.code-preview pre {
+  margin: 0;
+}
+
+.keyword { color: #f43f5e; }
+.property { color: #38bdf8; }
+.number { color: #fbbf24; }
+.value { color: #34d399; }
+
+/* Interactive Features */
+.interactive-section {
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: var(--transition-smooth);
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateX(4px);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.feature-text p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Footer Section */
+.footer {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Fallback for very small screens (adds horizontal scrolling or scaling down if viewport is <600px, 
+   but maintains the strict 600px width requested by user instead of auto-shrinking) */
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+  .contents {
+    /* To prevent overflow cutting off layout entirely on mobile, we can scale or let it wrap,
+       but the user specifically requested "폭이 고정적으로 600px" (width strictly 600px).
+       So it stays 600px. */
+  }
+}
